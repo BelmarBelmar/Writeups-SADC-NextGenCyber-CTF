@@ -8,9 +8,9 @@ $ file final.png
 final.png: JPEG image data, comment: "https://www.tumblr.com/ganymede-laughlin", progressive, precision 8, 5376x3584, components 3
 ```
 The output of command file shows that final.png contains a comment(a link) in its metadata. This link take us to the profile of "Ganymede Laughlin"
-We can see that Ganymede is a cybersecurity engineer and he talks about the stronger of good password. In his second post, we can his name, birthday, nickname... 
+We can see that Ganymede is a cybersecurity engineer and he talks about the strength of good password. In second post, we can see his name, date of birth, nickname... 
 
-According to the challenge statement, final.png would contain a hidden file.So, we can use binwalk to see that:
+According to the challenge statement, final.png would contain a hidden file. So, we can use binwalk to see that:
 
 ```bash
 └──╼ $binwalk final.png
@@ -64,11 +64,11 @@ Archive:  3EDF96.zip
 
 ```
 
-binwalk extracted 3EDF96.zip. If we attempt to decompress the zip file, we can see that the file is protected with password. According to the hint of challenge (What about using Cupp dictionary to create a wordlist based on the informations ?), we can use cupp to create a wordlist in order to bruteforce the zip file. This wordlist will base on 'Ganymede' profile. 
-If you don't have cupp, you can install it in your virtual environment with the command: pip install cupp
+binwalk extracted 3EDF96.zip. If we attempt to unzip the zip file, we can see that the file is protected with password. According to the hint of challenge (What about using Cupp dictionary to create a wordlist based on the informations ?), we can use cupp to create a wordlist in order to bruteforce the zip file. This wordlist will be based on 'Ganymede' profile. 
+If you don't have cupp, you can install it in your virtual environment with the command: **pip install cupp**
 
 ```bash
 
 ```
 
-We can then use zip2john and john to crack the zipfile
+We can then use zip2john and john to crack the zipfile.
