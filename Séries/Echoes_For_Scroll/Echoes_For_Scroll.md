@@ -65,7 +65,7 @@ Archive:  3EDF96.zip
 ```
 
 binwalk extracted 3EDF96.zip. If we attempt to unzip the zip file, we can see that the file is protected with password. According to the hint of challenge (What about using Cupp dictionary to create a wordlist based on the informations ?), we can use cupp to create a wordlist in order to bruteforce the zip file. This wordlist will be based on 'Ganymede' profile. 
-If you don't have cupp, you can install it in your virtual environment with the command: **pip install cupp**
+If you don't have cupp, you can install it in your virtual environment with the command: ==pip install cupp==
 
 ```bash
 
