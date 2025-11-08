@@ -1,14 +1,14 @@
 # Echoes For Scroll
 
 ## Approach
-i Open the provided final.png file and analyze it. Firstly, I type file and binwalk commands in order to see the nature of file.
+Open the provided final.png file and analyze it. Firstly, we can type `file` and `binwalk` commands in order to see the nature of file.
 
 ```bash
 $ file final.png 
 final.png: JPEG image data, comment: "https://www.tumblr.com/ganymede-laughlin", progressive, precision 8, 5376x3584, components 3
 ```
-The output of command file shows that final.png contains a comment(a link) in its metadata. This link take us to the profile of "Ganymede Laughlin"
-We can see that Ganymede is a cybersecurity engineer and he talks about the strength of good password. In second post, we can see his name, date of birth, nickname... 
+The output of command file shows that `final.png` contains a comment(a link) in its metadata. This link take us to the profile of *Ganymede Laughlin*
+We can see that *Ganymede* is a cybersecurity engineer and he talks about the strength of good password. In second post, we can see his name, date of birth, nickname... 
 
 According to the challenge statement, final.png would contain a hidden file. So, we can use binwalk to see that:
 
@@ -27,7 +27,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 4259578       0x40FEFA        End of Zip archive, footer length: 22
 ```
 
-The output of binwalk shows that, there is effectively a hidden data in final.png file. So, we can extract them with the following command:
+The output of `binwalk` shows that, there is effectively a hidden data in final.png file. So, we can extract them with the following command:
 
 ```bash
 └──╼ $binwalk -e final.png 
@@ -64,13 +64,11 @@ Archive:  3EDF96.zip
 
 ```
 
-binwalk extracted 3EDF96.zip. If we attempt to unzip the zip file, we can see that the file is protected with password. According to the hint of challenge (What about using Cupp dictionary to create a wordlist based on the informations ?), we can use cupp to create a wordlist in order to bruteforce the zip file. This wordlist will be based on 'Ganymede' profile. 
-If you don't have cupp, you can install it in your virtual environment with the command: ==pip install cupp==
+`binwalk` extracted 3EDF96.zip. If we attempt to unzip the zip file, we can see that the file is protected with password. According to the hint of challenge (`What about using Cupp dictionary to create a wordlist based on the informations ?`), we can use `cupp` to create a wordlist in order to bruteforce the zip file. This wordlist will be based on *Ganymede* profile. 
+If you don't have `cupp`, you can install it in your virtual environment with the command: `pip install cupp`
 
 ```bash
 
 ```
 
-We can then use zip2john and john to crack the zipfile.
-
-    Test de bash sans bash
+We can then use `zip2john` and `john` to crack the zipfile.
